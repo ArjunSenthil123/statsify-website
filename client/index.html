@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizify Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,300&display=swap" rel="stylesheet">
+
+
+
+  </head>
+  <body>
+    
+
+    <nav>
+      <h1 class="specialListItem">Quizify</h1>
+      
+      <div class = "search-container">
+        <form id="searchForm" class="search-bar" onsubmit="searchArtists(event)" action="/songs" method="get">
+          <input type="text" placeholder="search any artist" name="q">
+          <button type="submit"><img src="images/search.svg.png"></button>
+        </form>
+      </div>
+
+     
+        
+    </nav>
+
+    <div class = "text-box">
+        <h1>Explore your favorite artists</h1>
+    </div>
+
+    <div class = "img-container">
+      <a href="https://www.example.com" target="_blank">
+        <img src="images/eminem.jpeg" alt="img 1">
+      </a>
+      <a href="https://open.spotify.com/artist/3TVXtAsR1Inumwj472S9r4" target="_blank">
+        <img src="images/download.jpeg" alt="img 1">
+      </a>
+      <a href="https://www.example.com" target="_blank">
+        <img src="images/kanye.jpeg" alt="img 1">
+      </a>
+      <a href="https://www.example.com" target="_blank">
+        <img src="images/kendrick.jpeg" alt="img 1">
+      </a>
+    </div>
+
+  <div id = "currArtist"> Current Artist: (None) </div>
+
+  <div id = "iframecontainer">
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2Dp0qki35K3PMjRvnKQ5o0?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  
+
+  <button id="hideButton" onclick="showSong()">Click To Reveal</button>
+
+
+
+  <div class = "guessContainer">
+    <h1 id="guessText">Enter your guess: </h1>
+    <input type="text" id="guessInput" placeholder="Type in song name">
+    <button id = "checkGuess" onclick="checkGuess()">Check Guess</button>
+    <button id="nextSong" onclick="searchArtistsButton()">Next Song</button>
+  </div>
+
+  <div id = "responseText"></div>
+
+
+
+  <div class = "instructions"> INSTRUCTIONS 
+    <p>To get started, enter the artist whose songs you want to guess. You get a point everytime you
+      guess the song correctly within 3 tries. If you can't guess the song, either click 
+      the reveal button or click next song, however a point will not be added to your total score.</p>
+  </div>
+
+  <div class = "scoreboard"> 
+    <p>SCORE:</p> 
+    <div id = score>0</div>
+  </div>
+
+  <div class="difficulty-container"> DIFFICULTY 
+    <div class="difficulty-options">
+        <div class="difficulty-option" id = "easyButton"><button onclick="setDiffEasy()">Easy</button></div>
+        <div class="difficulty-option" id = "mediumButton"><button onclick="setDiffMedium()">Medium</button></div>
+        <div class="difficulty-option" id = "hardButton"><button onclick="setDiffHard()">Hard</button></div>
+    </div>
+</div>
+
+  <div class = "reset-game-container"> 
+    <p>RESET GAME</p> 
+    <button id="resetButton" onclick="resetGame()">reset</button>
+  </div>
+
+
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+    <script src="app.js"></script>
+    
+  </body>
+    
+</html>
